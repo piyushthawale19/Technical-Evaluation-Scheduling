@@ -110,10 +110,10 @@ export class AuthService {
     const payload = { userId, organizationId, roles };
     return {
       accessToken: jwt.sign(payload, env.jwtAccessSecret, {
-        expiresIn: env.accessTokenExpiry,
+        expiresIn: env.accessTokenExpiry as any,
       }),
       refreshToken: jwt.sign(payload, env.jwtRefreshSecret, {
-        expiresIn: env.refreshTokenExpiry,
+        expiresIn: env.refreshTokenExpiry as any,
       }),
     };
   }
