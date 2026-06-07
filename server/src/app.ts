@@ -18,6 +18,9 @@ export function buildApp() {
   app.use(cookieParser());
   app.use(morgan("dev"));
 
+  app.get("/", (_request, response) =>
+    response.send("TutorFlow API is running!"),
+  );
   app.get("/health", (_request, response) =>
     response.json({ ok: true, service: "tutorflow-server" }),
   );
